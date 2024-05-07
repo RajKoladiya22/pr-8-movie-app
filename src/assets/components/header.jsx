@@ -1,39 +1,33 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
 
 export const Header = () => {
-    const [activeItem, setActiveItem] = useState('');
-
-    const handleItemClick = (menuItem) => {
-        setActiveItem(menuItem === activeItem ? '' : menuItem);
-    };
 
     return (
-        <div className="contain">
-            <nav className="side-nav">
-                <ul className="nav-menu">
-                    <li className={`nav-item ${activeItem === 'Dashboard' ? 'active' : ''}`}>
-                        <NavLink to="/" onClick={() => handleItemClick('Dashboard')}>
-                            <span className="menu-text">Home</span>
-                        </NavLink>
-                    </li>
-                    <li className={`nav-item ${activeItem === 'Users' ? 'active' : ''}`}>
-                        <NavLink to="/trending" onClick={() => handleItemClick('Users')}>
-                            <span className="menu-text">Trending</span>
-                        </NavLink>
-                    </li>
-                    <li className={`nav-item ${activeItem === 'Posts' ? 'active' : ''}`}>
-                        <NavLink to="/upcoming" onClick={() => handleItemClick('Posts')}>
-                            <span className="menu-text">Upcoming</span>
-                        </NavLink>
-                    </li>
-                    <li className={`nav-item ${activeItem === 'Media' ? 'active' : ''}`}>
-                        <NavLink to="/favorites" onClick={() => handleItemClick('Media')}>
-                            <span className="menu-text">Favorites</span>
-                        </NavLink>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    );
+        <>
+            <Navbar bg="dark" data-bs-theme="dark">
+                <Container>
+                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link as={Link} to={'/'}>Home</Nav.Link>
+                        <Nav.Link as={Link} to={'/treding'}>Treding</Nav.Link>
+                        <Nav.Link as={Link} to={'/upcoming'}>Upcoming</Nav.Link>
+                        <Nav.Link as={Link} to={'/favorites'}>Favorites</Nav.Link>
+                        <Col xs="auto">
+                            <Form.Control
+                                type="text"
+                                placeholder="Search"
+                                className=" mr-sm-2"
+                            />
+                        </Col>
+                    </Nav>
+                </Container>
+            </Navbar>
+        </>
+    )
 };

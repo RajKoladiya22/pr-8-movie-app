@@ -6,9 +6,9 @@ import { Home } from './assets/pages/home'
 import { Treding } from './assets/pages/treding'
 import { Upcoming } from './assets/pages/upcoming'
 import { Favorites } from './assets/pages/favorites'
+import { Add } from './assets/pages/add'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -18,6 +18,7 @@ function App() {
           <Route path='/treding' element={<Treding/>}></Route>
           <Route path='/upcoming' element={<Upcoming/>}></Route>
           <Route path='/favorites' element={<Favorites />}></Route>
+          <Route path='/add' element={<Add/>}></Route>
         </Routes>
       </BrowserRouter>
     </>
