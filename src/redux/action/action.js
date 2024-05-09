@@ -9,3 +9,11 @@ export const ADD_DATA = (data) => {
     payload: data,
   };
 };
+
+
+export const FILTTER_DATA = (data) => {
+  return {  
+    type: "filter",
+    payload: data,
+  };
+};
